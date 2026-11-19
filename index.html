@@ -148,19 +148,19 @@ h1{font-size:clamp(34px,10.4vw,64px);font-weight:800;text-transform:uppercase;ma
 /* desktop + tablet: everything sized against the surface width (cqw) to keep MAIN_UI.png proportions */
 /* every width (MAIN_UI.png is the phone design): sizes scale with the viewport / surface width (cqw) */
 @media all{
-  :root{--rail:min(7.1vw,128px);--top:min(4.1vw,72px);--padl:calc(2.9vw + var(--rail) + 3.4vw);--tick:max(1px,.12vw)}
+  :root{--rail:clamp(42px,9vw,120px);--top:min(4.1vw,72px);--padl:calc(2.9vw + var(--rail) + 3.4vw);--tick:max(1px,.12vw)}
   body{padding:0 2.9vw 0 var(--padl)}
   .rail{left:2.9vw;top:var(--top);bottom:var(--top);border-radius:calc(var(--rail) / 2);padding:calc(var(--rail) * .14) 0 calc(var(--rail) * .2)}
   .theme{width:calc(var(--rail) * .68);height:calc(var(--rail) * .68)}
   .theme svg{width:72%;height:72%}
-  .rail-nav{margin-top:calc(var(--rail) * .3);padding-right:calc(var(--rail) * .22)}
-  .rail-nav a span{font-size:min(1.9vw,1.4vh,26px);font-weight:400;letter-spacing:.25em;transition:font-size .45s cubic-bezier(.2,.8,.2,1),opacity .3s}
-  /* current section reads big and takes more of the rail; the rest shrink back */
-  .rail-nav a{transition:flex-grow .5s cubic-bezier(.2,.8,.2,1),color .25s}
-  .rail-nav a.active{flex-grow:2.2}
-  .rail-nav a.active span{font-size:max(12px,min(2.6vw,1.9vh,34px));font-weight:500}
-  .rail-nav a:not(.active) span{font-size:max(8px,min(1.45vw,1.05vh,19px));opacity:.65}
-  .rail-nav a::before{width:calc(var(--rail) * .17);height:var(--rail)}
+  /* labels sit as one group in the middle of the rail, evenly but not widely spaced */
+  .rail-nav{margin-top:calc(var(--rail) * .3);padding-right:calc(var(--rail) * .22);justify-content:center;gap:clamp(18px,4vh,48px)}
+  .rail-nav a{flex:0 0 auto;padding-block:6px}
+  .rail-nav a span{font-weight:400;letter-spacing:.22em;transition:font-size .45s cubic-bezier(.2,.8,.2,1),opacity .3s}
+  /* current section reads big; the rest stay smaller */
+  .rail-nav a.active span{font-size:max(15px,min(calc(var(--rail) * .38),2.4vh,30px));font-weight:600}
+  .rail-nav a:not(.active) span{font-size:max(11px,min(calc(var(--rail) * .27),1.7vh,21px));opacity:.7}
+  .rail-nav a::before{width:calc(var(--rail) * .17);height:min(var(--rail),70%)}
   .ticks,.ticks-fill{top:calc(var(--rail) * 1.15);bottom:calc(var(--rail) * .3);width:calc(var(--rail) * .17);
     background:repeating-linear-gradient(to bottom,#fff 0 var(--tick),transparent var(--tick) min(3vw,54px)) right/100% 100% no-repeat,
                repeating-linear-gradient(to bottom,rgba(255,255,255,.85) 0 var(--tick),transparent var(--tick) min(1.5vw,27px)) right/60% 100% no-repeat}
@@ -213,15 +213,17 @@ h1{font-size:clamp(34px,10.4vw,64px);font-weight:800;text-transform:uppercase;ma
   .tiles{grid-template-columns:repeat(4,17cqw);gap:4.5cqw;margin:2.6cqw 0 0 3cqw}
   .soc{aspect-ratio:1;border-radius:3.9cqw;font-size:1.7cqw;gap:1cqw}
   .soc svg{width:4.6cqw;height:4.6cqw}
-  /* tall phones: bigger 2x2 connect tiles, and the spare height goes around the OASIS card instead of sitting empty at the bottom */
+  /* tall phones: grow the content into the spare height (taller OASIS card, stretching connect tiles) instead of leaving gaps */
   @media (max-aspect-ratio:3/4){
-    .home{display:flex;flex-direction:column}
-    .tags{margin-bottom:7cqw}
-    .feat{margin-top:auto;margin-bottom:5.5cqw}
-    .connect{margin-top:auto}
-    .tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:4cqw;margin:3.5cqw 0 0}
-    .soc{aspect-ratio:1.7;border-radius:4.5cqw;font-size:3.4cqw;gap:1.6cqw}
-    .soc svg{width:7.5cqw;height:7.5cqw}
+    .home{display:flex;flex-direction:column;justify-content:space-between;padding-bottom:6cqw}
+    .tags{margin-bottom:8cqw}
+    .feat{margin-top:0;margin-bottom:6cqw;height:46cqw;flex:none}
+    .feat-actions{top:34cqw}
+    .feat-img{top:-6cqw;width:44cqw}
+    .connect{margin-top:0;flex:1 1 auto;display:flex;flex-direction:column;max-height:100cqw}
+    .tiles{flex:1;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(22cqw,1fr);gap:4cqw;margin:3.5cqw 0 0}
+    .soc{aspect-ratio:auto;border-radius:4.5cqw;font-size:3.6cqw;gap:2cqw}
+    .soc svg{width:8.5cqw;height:8.5cqw}
   }
 }
 
@@ -256,10 +258,10 @@ h1{font-size:clamp(34px,10.4vw,64px);font-weight:800;text-transform:uppercase;ma
 .p-name{font-size:clamp(26px,3vw,40px);text-transform:uppercase;margin:18px 0 10px;line-height:.95}
 .tl{font:600 clamp(18px,1.8vw,22px)/1.25 var(--f-sub)}
 .ds{color:var(--muted);margin-top:10px;font-size:16px}
-.steps{list-style:none;padding:0;margin:22px 0 26px;display:grid;gap:12px;counter-reset:s}
-.steps li{counter-increment:s;display:grid;grid-template-columns:30px 1fr;column-gap:10px;font-size:15px;line-height:1.45;color:var(--muted)}
-.steps li::before{content:"0" counter(s);grid-row:span 2;font:600 15px var(--f-sub);color:var(--orange);padding-top:1px}
-.steps b{font:600 17px/1.3 var(--f-sub);color:var(--ink)}
+.steps{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:6px;counter-reset:s}
+.steps li{counter-increment:s;display:flex;align-items:baseline;gap:10px;padding:10px 14px;border-radius:14px;background:var(--card);font-size:13px;line-height:1.35;color:var(--muted)}
+.steps li::before{content:"0" counter(s);font:600 12px var(--f-sub);color:var(--orange)}
+.steps b{font:600 15px/1.3 var(--f-sub);color:var(--ink)}
 .actions{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
 .link{display:inline-flex;gap:10px;align-items:center;font:500 18px var(--f-sub);text-decoration:none;padding:12px 6px;background:linear-gradient(currentColor,currentColor) 6px calc(100% - 6px)/0 2px no-repeat;transition:background-size .3s}
 .link:hover{background-size:calc(100% - 12px) 2px}
@@ -276,7 +278,8 @@ h1{font-size:clamp(34px,10.4vw,64px);font-weight:800;text-transform:uppercase;ma
 .b-desc{color:var(--muted);font-size:15px;line-height:1.5;margin-top:10px;flex:1}
 .b-chips{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
 .b-chips li{font:500 12px var(--f-sub);letter-spacing:.04em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--pink)}
-.p-info .b-chips li{background:var(--card)}
+.p-info .b-chips{margin:14px 0 22px}
+.p-info .b-chips li{background:transparent;box-shadow:inset 0 0 0 1px var(--line)}
 .b-status{display:flex;align-items:center;gap:8px;font:500 13px var(--f-sub);color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px dashed var(--line)}
 .b-status::before{content:"";width:8px;height:8px;border-radius:50%;background:#9a948e;flex:none}
 .b-status.ok::before{background:#34c759}
@@ -498,13 +501,12 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin
           <span class="os"><svg><use href="#i-os"/></svg>Open source</span> <span class="b-status ok inline">V1 shipped · V2 in development</span>
           <h3 class="p-name">Project OASIS</h3>
           <p class="tl">Talk to your computer. Get things done.</p>
-          <p class="ds">An open-source voice-first interface that lets people interact with their computers through speech and a compact physical controller.</p>
-          <ul class="b-chips"><li>ESP32-C3</li><li>BLE</li><li>Embedded C</li><li>Low-power firmware</li></ul>
           <ol class="steps">
-            <li><b>Press</b>Three programmable buttons on a wireless BLE controller.</li>
-            <li><b>Speak</b>Voice commands and voice typing, in plain language.</li>
-            <li><b>Get things done</b>It sleeps in deep-sleep and wakes on a button press, so it lasts.</li>
+            <li><b>Press</b>3 programmable keys</li>
+            <li><b>Speak</b>Commands &amp; typing</li>
+            <li><b>Done</b>Days on one charge</li>
           </ol>
+          <ul class="b-chips"><li>ESP32-C3</li><li>BLE</li><li>Embedded C</li><li>Low-power</li></ul>
           <div class="actions">
             <a class="pill hot" href="https://www.youtube.com/watch?v=INGq1PckhZ8" target="_blank" rel="noopener"><svg><use href="#i-play"/></svg>Watch demo</a>
             <a class="link" href="https://dhanushscience.github.io/PROJECT-OASIS/" target="_blank" rel="noopener">Explore project <svg><use href="#i-arrow"/></svg></a>
