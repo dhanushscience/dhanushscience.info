@@ -56,6 +56,13 @@ img{max-width:100%;height:auto;display:block}
   background:repeating-linear-gradient(to bottom,var(--orange) 0 2px,transparent 2px 50px) right/18px 100% no-repeat,
              repeating-linear-gradient(to bottom,var(--orange) 0 1px,transparent 1px 10px) right/10px 100% no-repeat}
 
+/* rail avatar + section dots (from the inspiration sketch) */
+.rail-me{flex:none;width:calc(var(--rail) * .68);height:calc(var(--rail) * .68);border-radius:50%;background:#fff;color:#000;text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;margin-top:8px;transition:transform .3s,background .25s,color .25s}
+.rail-me:hover{transform:scale(1.06);background:var(--orange);color:#fff}
+.rail-me b{font:700 max(11px,calc(var(--rail) * .24)) var(--f-sub);letter-spacing:-.02em}
+.rail-me span{font:500 max(7px,calc(var(--rail) * .13)) var(--f-sub);opacity:.55;margin-top:1px}
+.dots{display:none}
+
 /* ---------- frame / surface ---------- */
 .frame{position:relative;max-width:1260px;margin:var(--gap) auto var(--gap) 0;padding-right:var(--gap)}
 .surface{position:relative;background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:64px 64px;border-radius:64px;box-shadow:inset 0 0 46px var(--edge),0 40px 80px -50px rgba(0,0,0,.35);padding:clamp(40px,5vw,72px);overflow-x:clip}
@@ -148,7 +155,7 @@ h1{font-size:clamp(34px,10.4vw,64px);font-weight:800;text-transform:uppercase;ma
 /* desktop + tablet: everything sized against the surface width (cqw) to keep MAIN_UI.png proportions */
 /* every width (MAIN_UI.png is the phone design): sizes scale with the viewport / surface width (cqw) */
 @media all{
-  :root{--rail:clamp(42px,9vw,120px);--top:min(4.1vw,72px);--padl:calc(2.9vw + var(--rail) + 3.4vw);--tick:max(1px,.12vw)}
+  :root{--u:1cqw;--rail:clamp(42px,9vw,120px);--top:min(4.1vw,72px);--padl:calc(2.9vw + var(--rail) + 3.4vw);--tick:max(1px,.12vw)}
   body{padding:0 2.9vw 0 var(--padl)}
   .rail{left:2.9vw;top:var(--top);bottom:var(--top);border-radius:calc(var(--rail) / 2);padding:calc(var(--rail) * .14) 0 calc(var(--rail) * .2)}
   .theme{width:calc(var(--rail) * .68);height:calc(var(--rail) * .68)}
@@ -161,27 +168,27 @@ h1{font-size:clamp(34px,10.4vw,64px);font-weight:800;text-transform:uppercase;ma
   .rail-nav a.active span{font-size:max(15px,min(calc(var(--rail) * .38),2.4vh,30px));font-weight:600}
   .rail-nav a:not(.active) span{font-size:max(11px,min(calc(var(--rail) * .27),1.7vh,21px));opacity:.7}
   .rail-nav a::before{width:calc(var(--rail) * .17);height:min(var(--rail),70%)}
-  .ticks,.ticks-fill{top:calc(var(--rail) * 1.15);bottom:calc(var(--rail) * .3);width:calc(var(--rail) * .17);
+  .ticks,.ticks-fill{top:calc(var(--rail) * 1.15);bottom:calc(var(--rail) * 1.1);width:calc(var(--rail) * .17);
     background:repeating-linear-gradient(to bottom,#fff 0 var(--tick),transparent var(--tick) min(3vw,54px)) right/100% 100% no-repeat,
                repeating-linear-gradient(to bottom,rgba(255,255,255,.85) 0 var(--tick),transparent var(--tick) min(1.5vw,27px)) right/60% 100% no-repeat}
-  .ticks-fill{bottom:auto;height:calc((100% - var(--rail) * 1.45) * var(--p,0));
+  .ticks-fill{bottom:auto;height:calc((100% - var(--rail) * 2.25) * var(--p,0));
     background:repeating-linear-gradient(to bottom,var(--orange) 0 var(--tick),transparent var(--tick) min(3vw,54px)) right/100% 100% no-repeat,
                repeating-linear-gradient(to bottom,var(--orange) 0 var(--tick),transparent var(--tick) min(1.5vw,27px)) right/60% 100% no-repeat}
-  .frame{container-type:inline-size;max-width:1500px;margin:var(--top) 0;padding:0}
+  .frame{container-type:inline-size;max-width:1500px;margin:var(--top) auto;padding:0}
   /* notch around the contact button: circle (r 10.2cqw) blended into top + right edges with 6.5cqw fillets. Same path drives the mask and the inner shadow. */
-  .notch-shade{position:absolute;top:0;right:0;width:30cqw;height:30cqw;z-index:1;pointer-events:none;overflow:visible;filter:drop-shadow(0 0 1.4cqw var(--edge)) drop-shadow(0 0 5cqw var(--edge))}
+  .notch-shade{position:absolute;top:0;right:0;width:calc(var(--u) * 30);height:calc(var(--u) * 30);z-index:1;pointer-events:none;overflow:visible;filter:drop-shadow(0 0 calc(var(--u) * 1.4) var(--edge)) drop-shadow(0 0 calc(var(--u) * 5) var(--edge))}
   .portrait-img,.feat-img{z-index:5!important}
-  .surface{border-radius:9.3cqw;padding:7.2cqw 7.9cqw 7.2cqw 7.5cqw;background-size:4.2cqw 4.2cqw;box-shadow:inset 0 0 1.4cqw var(--edge),inset 0 0 5cqw var(--edge);
-    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='70 -0.5 30.5 30.5'%3E%3Cpath d='M76.115 -0.5L76.115 0A6.5 6.5 0 0 1 82.609 6.772A10.2 10.2 0 0 0 93.228 17.391A6.5 6.5 0 0 1 100 23.885L100.5 23.885L100.5 -0.5Z'/%3E%3C/svg%3E") right -0.5cqw top -0.5cqw/30.5cqw 30.5cqw no-repeat,linear-gradient(#000 0 0);
+  .surface{border-radius:calc(var(--u) * 9.3);padding:7.2cqw 7.9cqw 7.2cqw 7.5cqw;background-size:4.2cqw 4.2cqw;box-shadow:inset 0 0 1.4cqw var(--edge),inset 0 0 5cqw var(--edge);
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='70 -0.5 30.5 30.5'%3E%3Cpath d='M76.115 -0.5L76.115 0A6.5 6.5 0 0 1 82.609 6.772A10.2 10.2 0 0 0 93.228 17.391A6.5 6.5 0 0 1 100 23.885L100.5 23.885L100.5 -0.5Z'/%3E%3C/svg%3E") right calc(var(--u) * -0.5) top calc(var(--u) * -0.5)/calc(var(--u) * 30.5) calc(var(--u) * 30.5) no-repeat,linear-gradient(#000 0 0);
     -webkit-mask-composite:xor;
-            mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='70 -0.5 30.5 30.5'%3E%3Cpath d='M76.115 -0.5L76.115 0A6.5 6.5 0 0 1 82.609 6.772A10.2 10.2 0 0 0 93.228 17.391A6.5 6.5 0 0 1 100 23.885L100.5 23.885L100.5 -0.5Z'/%3E%3C/svg%3E") right -0.5cqw top -0.5cqw/30.5cqw 30.5cqw no-repeat exclude,linear-gradient(#000 0 0)}
-  .fab-wrap{top:calc(1.4cqw + 14px)}
-  .fab{right:-1.4cqw;top:-1.4cqw;width:17.2cqw;height:17.2cqw;font-size:2.6cqw;gap:.3cqw}
-  .fab svg{width:7cqw;height:7cqw}
+            mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='70 -0.5 30.5 30.5'%3E%3Cpath d='M76.115 -0.5L76.115 0A6.5 6.5 0 0 1 82.609 6.772A10.2 10.2 0 0 0 93.228 17.391A6.5 6.5 0 0 1 100 23.885L100.5 23.885L100.5 -0.5Z'/%3E%3C/svg%3E") right calc(var(--u) * -0.5) top calc(var(--u) * -0.5)/calc(var(--u) * 30.5) calc(var(--u) * 30.5) no-repeat exclude,linear-gradient(#000 0 0)}
+  .fab-wrap{top:calc(calc(var(--u) * 1.4) + 14px)}
+  .fab{right:calc(var(--u) * -1.4);top:calc(var(--u) * -1.4);width:calc(var(--u) * 17.2);height:calc(var(--u) * 17.2);font-size:calc(var(--u) * 2.6);gap:calc(var(--u) * .3)}
+  .fab svg{width:calc(var(--u) * 7);height:calc(var(--u) * 7)}
   .fab-wrap.stuck .fab{transform:scale(.42);box-shadow:0 12px 30px rgba(0,0,0,.3)}
   .fab-wrap.stuck .fab span{opacity:0;position:absolute}
-  .menu{top:17cqw}
-  .fab-wrap.stuck .menu{top:7.8cqw}
+  .menu{top:calc(var(--u) * 17)}
+  .fab-wrap.stuck .menu{top:calc(var(--u) * 7.8)}
 
   /* first screen shows only the home block; the rest starts below the fold */
   .home{min-height:calc(100vh - var(--top) - 7.2cqw);min-height:calc(100svh - var(--top) - 7.2cqw);scroll-snap-align:start;scroll-margin-top:calc(var(--top) + 7.2cqw)}
@@ -224,6 +231,50 @@ h1{font-size:clamp(34px,10.4vw,64px);font-weight:800;text-transform:uppercase;ma
     .tiles{flex:1;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(22cqw,1fr);gap:4cqw;margin:3.5cqw 0 0}
     .soc{aspect-ratio:auto;border-radius:4.5cqw;font-size:3.6cqw;gap:2cqw}
     .soc svg{width:8.5cqw;height:8.5cqw}
+  }
+  /* desktop: its own one-screen home (text + portrait, tags, then OASIS card beside the connect tiles); contact button and notch capped */
+  @media (min-width:1024px) and (min-aspect-ratio:5/4){
+    :root{--u:min(1cqw,7.4px);--pad:clamp(32px,5.5vh,64px)}
+    .surface{padding:var(--pad) clamp(40px,4.4vw,80px)}
+    .fab-wrap.stuck .fab{transform:scale(.62)}
+    .dots{display:flex;flex-direction:column;align-items:center;gap:26px;position:absolute;right:calc(var(--u) * 7.2 - 5px);top:calc(var(--u) * 26);padding:4px 0 34px;background:linear-gradient(var(--muted),var(--muted)) 50% 0/1px 100% no-repeat;opacity:.8}
+    .dots a{width:10px;height:10px;border-radius:50%;background:var(--muted);transition:transform .3s,background .3s}
+    .dots a.active{background:var(--orange);transform:scale(1.4)}
+    .dots a:hover{background:var(--ink)}
+    .fab-wrap.stuck .dots{top:calc(var(--u) * 13)}
+    .rail-nav{gap:clamp(10px,2.4vh,36px);min-height:0}
+    .rail-nav a.active span{font-size:clamp(12px,1.9vh,26px)}
+    .rail-nav a:not(.active) span{font-size:clamp(10px,1.25vh,17px)}
+    .theme,.rail-me{width:min(calc(var(--rail) * .68),7vh);height:min(calc(var(--rail) * .68),7vh)}
+    .home{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);grid-template-rows:auto auto auto;align-content:center;column-gap:clamp(18px,2.2vw,36px);
+      min-height:calc(100vh - 2 * var(--top) - 2 * var(--pad));min-height:calc(100svh - 2 * var(--top) - 2 * var(--pad));scroll-margin-top:calc(var(--top) + var(--pad))}
+    .hero{grid-column:1/-1;height:auto;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:24px;align-items:center}
+    .hero>*{grid-column:1;margin-left:0}
+    .hero>.portrait-img{position:relative;grid-column:2;grid-row:1/span 5;left:auto;top:auto;width:auto;height:clamp(230px,38vh,420px);margin:0 clamp(70px,10vw,150px) 0 0}
+    .hello{font-size:clamp(17px,2.2vh,26px)}
+    h1{font-size:clamp(42px,6.6vh,88px);margin:.6vh 0 1.6vh}
+    .bar{width:clamp(100px,9vw,160px);height:6px;margin-bottom:1.6vh}
+    .role{font-size:clamp(15px,1.9vh,21px)}
+    .headline{font-size:clamp(26px,3.9vh,46px);margin-top:1.8vh;line-height:1.08}
+    .tags{grid-column:1/-1;margin:clamp(14px,2.6vh,30px) 0 0;gap:12px}
+    .tag-pill{width:auto;height:clamp(40px,5vh,50px);padding:0 24px 0 16px;gap:10px;font-size:clamp(14px,1.8vh,17px)}
+    .tag-pill svg{width:24px;height:24px}
+    .feat{grid-column:1;grid-row:3;margin-top:clamp(14px,2.6vh,30px);margin-bottom:0;height:auto;min-height:clamp(200px,26vh,280px);border-radius:32px;padding:clamp(22px,3vh,34px) clamp(24px,2.4vw,38px)}
+    .feat>*,.feat .label,.feat-title,.feat-sub,.feat-actions{position:relative;left:auto;top:auto}
+    .feat::after{right:6%;bottom:-8%;width:42%;height:30%}
+    .feat .label,.connect .label{font-size:17px;gap:12px;margin:0}
+    .feat .label::before,.connect .label::before{width:5px;height:26px}
+    .feat-title{font-size:clamp(28px,4vh,44px);margin:1.8vh 0 1vh;max-width:58%}
+    .feat-sub{font-size:clamp(15px,1.9vh,19px);max-width:56%}
+    .feat-actions{margin-top:clamp(16px,2.8vh,28px);gap:12px 24px;flex-wrap:wrap;max-width:66%}
+    .watch{width:auto;height:clamp(46px,5.6vh,56px);padding:0 28px;font-size:17px;gap:10px}
+    .watch svg{width:16px;height:16px}
+    .more{font-size:17px}
+    .feat-img{position:absolute;left:auto;right:0;top:auto;bottom:-4%;width:42%;height:auto}
+    .connect{grid-column:2;grid-row:3;margin:clamp(14px,2.6vh,30px) 0 0;display:flex;flex-direction:column}
+    .tiles{flex:1;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:14px;margin:16px 0 0}
+    .soc{aspect-ratio:auto;min-height:72px;border-radius:24px;font-size:15px;gap:8px}
+    .soc svg{width:30px;height:30px}
   }
 }
 
@@ -343,7 +394,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin
 @media (max-width:760px){
   body{font-size:16px}
   .fab-wrap.stuck .fab{transform:scale(.85)}
-  .fab-wrap.stuck .menu{top:16cqw}
+  .fab-wrap.stuck .menu{top:calc(var(--u) * 16)}
   .menu{width:min(300px,calc(100vw - 40px))}
   .pill{height:52px;padding:0 20px;font-size:16px}
   .caps{grid-template-columns:1fr;gap:10px}
@@ -403,6 +454,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin
     <a href="#interests"><span>Interests</span></a>
     <a href="#ask"><span>Ask me</span></a>
   </nav>
+  <a class="rail-me" href="#projects" aria-label="Next section"><b id="sec-n">01</b><span>/04</span></a>
   <div class="ticks" aria-hidden="true"></div>
   <div class="ticks-fill" aria-hidden="true"></div>
 </aside>
@@ -412,6 +464,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin
     <button class="fab" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="menu" aria-label="Contact">
       <svg><use href="#i-mail"/></svg><span>Contact</span>
     </button>
+    <nav class="dots" aria-label="Sections"><a href="#introduction" aria-label="Introduction"></a><a href="#projects" aria-label="Projects"></a><a href="#interests" aria-label="Interests"></a><a href="#ask" aria-label="Ask me"></a></nav>
     <div class="menu" id="menu" role="menu">
       <button role="menuitem" type="button" id="vcard"><svg><use href="#i-save"/></svg><span>Save contact<small>Download my contact card</small></span></button>
       <a role="menuitem" href="#ask"><svg><use href="#i-chat"/></svg><span>Ask me anything<small>Pick a conversation starter</small></span></a>
@@ -597,7 +650,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin
             <ul class="films">
               <li>Jobs <small>2013</small></li><li>Interstellar <small>FILM</small></li><li>3 Idiots <small>FILM</small></li><li>Super Pumped <small>SERIES</small></li><li>3 Body Problem <small>SERIES</small></li>
             </ul>
-            <p class="note">Movies and series that inspired me, in no particular order.</p>
+            <p class="note">Movies and series that inspired me.</p>
           </div>
         </div>
       </div>
@@ -630,9 +683,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin
           <li><a href="https://www.linkedin.com/in/dhanushscience/" target="_blank" rel="noopener"><svg><use href="#i-li"/></svg><b>LinkedIn</b><small>in/dhanushscience</small></a></li>
           <li><a href="https://github.com/dhanushscience" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg><b>GitHub</b><small>dhanushscience</small></a></li>
           <li><a href="mailto:dhanushscience@proton.me"><svg><use href="#i-mail"/></svg><b>Email</b><small>dhanushscience@proton.me</small></a></li>
-          <li><a href="https://www.youtube.com/@dhanushscience" target="_blank" rel="noopener"><svg><use href="#i-yt"/></svg><b>YouTube</b><small>@dhanushscience</small></a></li>
-          <li><a href="https://www.youtube.com/watch?v=INGq1PckhZ8" target="_blank" rel="noopener"><svg><use href="#i-play"/></svg><b>OASIS demo</b><small>Watch on YouTube</small></a></li>
-        </ul>
+          <li><a href="https://www.youtube.com/@dhanushscience" target="_blank" rel="noopener"><svg><use href="#i-yt"/></svg><b>YouTube</b><small>@dhanushscience</small></a></li>        </ul>
       </div>
       <footer class="mono"><span>© <span id="yr">2026</span> Dhanush Science</span><span>Entrepreneur · Technology Builder</span></footer>
     </section>
@@ -663,11 +714,12 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 $$('[data-r]').forEach(el=>io.observe(el));
 
 // scroll progress + active rail item
-const secs=$$('main section[id]'),links=$$('.rail-nav a'),fill=$('.ticks-fill');
+const secs=$$('main section[id]'),links=$$('.rail-nav a, .dots a'),fill=$('.ticks-fill');
 const onScroll=()=>{
   const max=root.scrollHeight-innerHeight;
   fill.style.setProperty('--p',max>0?Math.min(1,scrollY/max):0);
   let cur=secs[0]; secs.forEach(s=>{if(s.getBoundingClientRect().top<innerHeight*.4)cur=s});
+  const i=secs.indexOf(cur),nx=secs[(i+1)%secs.length];$('#sec-n').textContent='0'+(i+1);$('.rail-me').href='#'+nx.id;$('.rail-me').setAttribute('aria-label',i+1<secs.length?'Next section':'Back to top');
   links.forEach(a=>{const on=a.hash==='#'+cur.id;a.classList.toggle('active',on);on?a.setAttribute('aria-current','true'):a.removeAttribute('aria-current')});
 };
 const fw=$('.fab-wrap');addEventListener('scroll',()=>fw.classList.toggle('stuck',scrollY>120),{passive:true});
