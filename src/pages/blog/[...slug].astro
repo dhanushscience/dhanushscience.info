@@ -1,0 +1,65 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', (p) => !p.data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, date, cover } = post.data;
+const when = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+const postUrl = new URL(`/blog/${post.id}/`, Astro.site).href;
+const person = { '@type': 'Person', name: 'Dhanush S.', url: 'https://dhanushscience.info/' };
+const jsonLd = [
+  {
+    '@context': 'https://schema.org', '@type': 'BlogPosting',
+    headline: title, description,
+    image: new URL(cover ?? '/og-default.png', Astro.site).href,
+    datePublished: date.toISOString(), dateModified: date.toISOString(),
+    author: person, publisher: person, mainEntityOfPage: postUrl,
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dhanushscience.info/' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://dhanushscience.info/blog/' },
+      { '@type': 'ListItem', position: 3, name: title, item: postUrl },
+    ],
+  },
+];
+---
+<Base title={`${title} | Dhanush Science`} description={description} active="blog" image={cover} type="article" published={date} jsonLd={jsonLd}>
+  <article>
+    <a class="back mono" href="/blog/">← All posts</a>
+    <time class="mono" datetime={date.toISOString()}>{when}</time>
+    <h1>{title}</h1>
+    <p class="lead">{description}</p>
+    {cover && <img class="cover" src={cover} alt={title} width="1200" height="750">}
+    <div class="prose"><Content /></div>
+  </article>
+</Base>
+
+<style>
+  article{max-width:660px}
+  .back{display:inline-block;color:var(--muted);text-decoration:none;margin-bottom:20px}
+  .back:hover{color:var(--orange)}
+  time{display:block;color:var(--orange);margin-bottom:10px}
+  h1{font:800 clamp(22px,2.8vw,32px)/1.1 var(--f-display);letter-spacing:-.02em;margin-bottom:12px}
+  .lead{font:400 17px/1.5 var(--f-sub);color:var(--muted);margin-bottom:24px}
+  .cover{width:100%;border-radius:16px;margin-bottom:28px}
+  .prose :global(> * + *){margin-top:1.2em}
+  .prose :global(h2){font:700 21px/1.2 var(--f-sub);letter-spacing:-.01em;margin-top:2em}
+  .prose :global(h3){font:600 17px/1.25 var(--f-sub);margin-top:1.6em}
+  .prose :global(a){color:var(--orange);text-underline-offset:3px}
+  .prose :global(img){border-radius:12px;margin-block:1.6em}
+  .prose :global(ul),.prose :global(ol){padding-left:1.4em}
+  .prose :global(li + li){margin-top:.4em}
+  .prose :global(blockquote){border-left:4px solid var(--orange);padding-left:1.2em;color:var(--muted)}
+  .prose :global(code){font:500 .88em var(--f-mono);background:var(--pink);padding:.15em .4em;border-radius:6px}
+  .prose :global(pre){background:#0b0b0b;color:#f4f2ef;padding:20px;border-radius:18px;overflow-x:auto;font-size:15px}
+  .prose :global(pre code){background:none;padding:0}
+  .prose :global(hr){border:0;border-top:1px solid var(--line);margin-block:2.4em}
+</style>

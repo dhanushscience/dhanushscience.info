@@ -1,0 +1,69 @@
+---
+interface Props {
+  title: string; description: string; active?: 'blog'; image?: string; type?: 'website' | 'article';
+  noindex?: boolean; published?: Date; jsonLd?: object[];
+}
+const { title, description, active, image = '/og-default.png', type = 'website', noindex = false, published, jsonLd = [] } = Astro.props;
+const url = new URL(Astro.url.pathname, Astro.site);
+const img = new URL(image, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{title}</title>
+<meta name="description" content={description}>
+<meta name="author" content="Dhanush S.">
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'}>
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href={url}>
+<link rel="alternate" type="application/rss+xml" title="Dhanush Science blog" href="/rss.xml">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<meta property="og:site_name" content="Dhanush Science">
+<meta property="og:locale" content="en_IN">
+<meta property="og:type" content={type}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={url}>
+<meta property="og:image" content={img}>
+{published && <meta property="article:published_time" content={published.toISOString()} />}
+{published && <meta property="article:author" content="Dhanush S." />}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={title}>
+<meta name="twitter:description" content={description}>
+<meta name="twitter:image" content={img}>
+{jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23f15025'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<script is:inline>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<aside class="rail" aria-label="Site navigation">
+  <button class="theme" type="button" aria-label="Toggle light and dark theme">
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="16" cy="16" r="6"/><path d="M16 2v4M16 26v4M2 16h4M26 16h4M6.100 6.100l2.800 2.800M23.100 23.100l2.800 2.800M6.100 25.900l2.800-2.800M23.100 8.900l2.800-2.800"/></svg>
+  </button>
+  <nav class="rail-nav">
+    <a href="/#introduction"><span>Introduction</span></a>
+    <a href="/#projects"><span>Projects</span></a>
+    <a href="/#interests"><span>Interests</span></a>
+    <a href="/#ask"><span>Ask me</span></a>
+    <a href="/blog/" class:list={{ active: active === 'blog' }} aria-current={active === 'blog' ? 'page' : undefined}><span>Blog</span></a>
+  </nav>
+  <a class="rail-me" href="/" aria-label="Back to home"><b>DS</b></a>
+  <div class="ticks" aria-hidden="true"></div>
+  <div class="ticks-focus" aria-hidden="true"></div>
+  <span class="rail-ind" aria-hidden="true"></span>
+  <div class="ticks-fill" aria-hidden="true"></div>
+</aside>
+<main><div class="wrap page"><slot /></div></main>
+<script is:inline src="/site.js"></script>
+</body>
+</html>
+
+<style is:global>
+.wrap.page{margin-inline:0;max-width:1400px;padding-block:clamp(28px,5vw,64px) clamp(48px,7vw,96px)}
+</style>

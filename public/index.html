@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dhanush Science | Embedded Systems, AI &amp; Project OASIS</title>
+<meta name="description" content="Dhanush S. (Dhanush Science) builds embedded systems, voice AI and connected devices. Creator of Project OASIS, an open-source voice-first computer interface.">
+<meta name="author" content="Dhanush S.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://dhanushscience.info/">
+<link rel="alternate" type="application/rss+xml" title="Dhanush Science blog" href="/rss.xml">
+<meta property="og:site_name" content="Dhanush Science">
+<meta property="og:locale" content="en_IN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dhanush Science | Embedded Systems, AI &amp; Project OASIS">
+<meta property="og:description" content="Embedded systems, voice AI and connected devices. Creator of the open-source Project OASIS.">
+<meta property="og:url" content="https://dhanushscience.info/">
+<meta property="og:image" content="https://dhanushscience.info/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dhanush Science | Embedded Systems, AI &amp; Project OASIS">
+<meta name="twitter:description" content="Embedded systems, voice AI and connected devices. Creator of the open-source Project OASIS.">
+<meta name="twitter:image" content="https://dhanushscience.info/og-default.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://dhanushscience.info/#site","url":"https://dhanushscience.info/","name":"Dhanush Science","inLanguage":"en"},{"@type":"Person","@id":"https://dhanushscience.info/#person","name":"Dhanush S.","alternateName":"Dhanush Science","url":"https://dhanushscience.info/","image":"https://dhanushscience.info/DHANUSH.png","jobTitle":"Entrepreneur and Technology Builder","description":"Builds embedded systems, voice AI and connected devices. Creator of the open-source Project OASIS.","knowsAbout":["Embedded systems","Voice AI","Connected devices","Human-computer interaction"],"sameAs":["https://www.linkedin.com/in/dhanushscience/","https://github.com/dhanushscience","https://www.youtube.com/@dhanushscience"]}]}</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23f15025'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/site.css">
+<style>
+section{padding-block:clamp(56px,9vw,112px);border-top:1px solid var(--rule);scroll-margin-top:0}
+section:first-of-type{border-top:0}
+.title{font:800 clamp(28px,4.4vw,52px)/.98 var(--f-display);text-transform:uppercase;letter-spacing:-.01em}
+.lede{color:var(--muted);margin-top:16px;max-width:34em;font-size:clamp(16px,1.4vw,18px)}
+.sec-head{margin-bottom:clamp(28px,4vw,48px)}
+svg.i{width:1em;height:1em;flex:none}
+
+/* ---------- hero ---------- */
+#introduction{padding-top:clamp(28px,5vw,64px);padding-bottom:0}
+.hero-grid{display:grid;gap:clamp(24px,4vw,64px);align-items:center}
+.portrait{order:-1;position:relative;width:100%;max-width:440px;margin-inline:auto;background:var(--fig);border:1px solid var(--rule);border-radius:20px;padding:clamp(14px,2vw,26px) clamp(14px,2vw,26px) 0}
+.portrait::before,.portrait::after{content:"+";position:absolute;font:400 20px/1 var(--f-mono);color:var(--orange)}
+.portrait::before{top:8px;left:12px}.portrait::after{top:8px;right:12px}
+.portrait img{width:100%;aspect-ratio:969/1030;object-fit:cover;object-position:top;mix-blend-mode:multiply}
+:root[data-theme=dark] .portrait img{mix-blend-mode:normal;background:radial-gradient(closest-side at 50% 47%,rgba(236,231,223,.97) 56%,rgba(236,231,223,.55) 80%,rgba(236,231,223,0) 100%)}
+:root[data-theme=dark] .portrait figcaption{border-top-color:var(--rule);color:var(--muted)}
+.portrait figcaption{display:flex;justify-content:space-between;gap:12px;padding:12px 2px;border-top:1px solid rgba(0,0,0,.2);color:#4a463f}
+.kicker{color:var(--muted);margin-bottom:14px}
+h1{font:800 clamp(40px,6.2vw,84px)/.92 var(--f-display);text-transform:uppercase;letter-spacing:-.02em}
+.role{font:500 clamp(15px,1.4vw,18px) var(--f-sub);color:var(--muted);margin-top:18px}
+.rule{width:96px;height:5px;background:var(--orange);border-radius:3px;margin-top:20px}
+.headline{font:700 clamp(24px,3vw,38px)/1.12 var(--f-sub);letter-spacing:-.02em;margin-top:22px;max-width:15em}
+.headline em{font-style:normal;color:var(--orange);white-space:nowrap}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.tag{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px 0 10px;border:1px solid var(--rule);border-radius:999px;background:var(--card);font:500 13px var(--f-sub)}
+.tag svg{width:18px;height:18px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(40px,6vw,80px);border-top:1px solid var(--rule)}
+.stats div{padding:20px clamp(10px,2vw,28px) 20px 0}
+.stats div+div{padding-left:clamp(10px,2vw,28px);border-left:1px solid var(--rule)}
+.stats b{display:block;font:800 clamp(26px,4vw,48px)/1 var(--f-display);letter-spacing:-.02em}
+.stats span{display:block;margin-top:8px;color:var(--muted)}
+@media (min-width:900px){
+  #introduction{min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+  .hero-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
+  .portrait{order:0;max-width:none;justify-self:end;width:min(100%,540px)}
+}
+
+/* ---------- who ---------- */
+.who{display:grid;gap:clamp(28px,4vw,64px)}
+.who .lede{font:500 clamp(19px,1.9vw,24px)/1.4 var(--f-sub);color:var(--ink);letter-spacing:-.01em;max-width:24em}
+.who .lede strong{color:var(--orange);font-weight:700}
+.caps{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.caps div{padding:clamp(16px,2.2vw,28px);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--card)}
+.caps svg{width:30px;height:30px;color:var(--orange);margin-bottom:14px}
+.caps h3{font:600 17px/1.25 var(--f-sub)}
+.caps p{color:var(--muted);font-size:15px;margin-top:4px}
+@media (min-width:900px){.who{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:start}}
+@media (max-width:420px){.caps{grid-template-columns:1fr}}
+
+/* ---------- projects ---------- */
+.feat{display:grid;gap:clamp(20px,3vw,40px);align-items:center;background:var(--tint);border-radius:24px;padding:clamp(22px,4vw,56px);overflow:hidden}
+.badges{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;color:var(--muted)}
+.badges .os{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px 0 8px;border-radius:999px;background:#000;color:#fff}
+.badges .os svg{width:16px;height:16px;color:#34c759}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);margin-right:8px}
+.dot.wip{background:var(--orange)}
+.feat h3{font:800 clamp(34px,5.2vw,64px)/.92 var(--f-display);text-transform:uppercase;letter-spacing:-.02em;margin:16px 0 10px}
+.feat .tl{font:500 clamp(17px,1.7vw,21px)/1.4 var(--f-sub);max-width:22em}
+.steps{list-style:none;padding:0;margin:24px 0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule)}
+.steps li{padding:14px 12px 0 0;font-size:14px;color:var(--muted);line-height:1.35}
+.steps li+li{padding-left:12px;border-left:1px solid var(--rule)}
+.steps b{display:block;font:600 17px var(--f-sub);color:var(--ink);margin-bottom:2px}
+.feat-img{width:min(100%,440px);justify-self:center;filter:drop-shadow(0 22px 18px rgba(120,50,20,.25))}
+@media (min-width:900px){.feat{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}.feat-img{width:min(100%,500px)}}
+
+.proj-row{display:grid;gap:clamp(20px,3vw,40px);margin-top:clamp(20px,3vw,32px)}
+.video{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:#111 center/cover no-repeat;border:1px solid var(--rule)}
+.video button{position:absolute;inset:0;width:100%;border:0;background:linear-gradient(to top,rgba(0,0,0,.65),transparent 55%);color:#fff;cursor:pointer;display:flex;align-items:flex-end;justify-content:space-between;padding:18px 20px;font:500 15px var(--f-sub)}
+.video .play{position:absolute;left:50%;top:50%;width:68px;height:68px;margin:-34px;border-radius:50%;background:var(--orange);display:grid;place-items:center;transition:transform .3s}
+.video button:hover .play{transform:scale(1.08)}
+.video .play svg{width:26px;height:26px;margin-left:3px}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.spec{border-top:1px solid var(--ink)}
+.spec h4{font:500 12px var(--f-sub);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 0}
+.spec dl{display:grid;grid-template-columns:auto 1fr}
+.spec dt,.spec dd{padding:12px 0;border-top:1px solid var(--rule)}
+.spec dt{font:500 12px/1.6 var(--f-sub);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-right:24px}
+.spec dd{font:500 16px var(--f-sub);text-align:right}
+@media (min-width:900px){.proj-row{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);align-items:start}}
+
+.sub{font:600 clamp(19px,2vw,24px) var(--f-sub);letter-spacing:-.01em;margin:clamp(40px,6vw,72px) 0 18px}
+.builds{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+@media (min-width:1000px){.build:last-child:nth-child(3n+2){grid-column:span 2}}
+.build{padding:clamp(20px,2.4vw,30px);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--card);display:flex;flex-direction:column}
+.b-num{color:var(--orange);margin-bottom:14px}
+.b-name{font:800 clamp(20px,2vw,26px)/1 var(--f-display);text-transform:uppercase;letter-spacing:-.01em}
+.b-tag{font:500 15px var(--f-sub);color:var(--muted);margin:6px 0 12px}
+.b-desc{font-size:15px;line-height:1.55;flex:1}
+.chips{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:6px;margin:16px 0}
+.chips li{font:500 11px/1 var(--f-mono);letter-spacing:.04em;text-transform:uppercase;padding:6px 8px;border:1px solid var(--rule);border-radius:4px;color:var(--muted)}
+.status{font:500 13px var(--f-sub);display:flex;align-items:center}
+.note{color:var(--muted);margin-top:22px;font-size:15px}
+.note a{color:var(--orange);text-underline-offset:3px}
+
+/* ---------- interests ---------- */
+.quote,.contact{border:1px solid var(--rule)}
+.quote{background:var(--inv);color:var(--inv-ink);border-radius:24px;padding:clamp(26px,5vw,64px)}
+.quote blockquote{font:600 clamp(20px,2.7vw,34px)/1.28 var(--f-sub);letter-spacing:-.015em;max-width:28em}
+.quote blockquote span{color:var(--orange)}
+.quote cite{display:block;margin-top:22px;font-style:normal;opacity:.7}
+.ideas{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--rule)}
+.ideas div{padding:20px 12px 24px 0;border-bottom:1px solid var(--rule)}
+.ideas b{color:var(--orange);font:500 12px var(--f-sub);letter-spacing:.1em}
+.ideas h3{font:600 clamp(18px,1.8vw,22px)/1.2 var(--f-sub);margin-top:8px}
+.cols{display:grid;gap:clamp(28px,4vw,48px)}
+.cols h3{font:600 17px var(--f-sub);padding-bottom:12px;border-bottom:1px solid var(--ink);margin-bottom:4px}
+.cols ol,.cols ul{list-style:none;padding:0}
+.cols li{padding:11px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;gap:12px;font-size:16px}
+.cols li small{font:500 11px var(--f-sub);letter-spacing:.1em;color:var(--muted);align-self:center}
+.cols ol{counter-reset:p}
+.cols ol li::before{counter-increment:p;content:counter(p,decimal-leading-zero);font:500 12px var(--f-mono);color:var(--orange);align-self:center;width:28px;flex:none}
+.cols ol li{justify-content:flex-start}
+@media (min-width:700px){.ideas{grid-template-columns:repeat(4,1fr)}.ideas div+div{padding-left:20px;border-left:1px solid var(--rule)}.cols{grid-template-columns:repeat(3,1fr)}}
+
+/* ---------- ask + contact ---------- */
+.starters{border-top:1px solid var(--ink)}
+.starter{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;border-bottom:1px solid var(--rule);text-decoration:none;font:500 clamp(17px,2vw,24px)/1.3 var(--f-sub);letter-spacing:-.01em;transition:color .25s,padding .3s cubic-bezier(.2,.8,.2,1)}
+.starter svg{width:24px;height:24px;flex:none;color:var(--orange);transition:transform .3s}
+.starter:hover{color:var(--orange);padding-left:10px}
+.starter:hover svg{transform:translateX(4px)}
+.contact{display:grid;gap:28px;margin-top:clamp(40px,6vw,72px);background:var(--inv);color:var(--inv-ink);border-radius:24px;padding:clamp(26px,5vw,60px)}
+.contact h2{font:800 clamp(28px,4.4vw,52px)/.98 var(--f-display);text-transform:uppercase;letter-spacing:-.01em;margin:14px 0 16px}
+.contact h2 em{font-style:normal;color:var(--orange)}
+.contact p{opacity:.8;max-width:30em}
+.contact .cta .btn.line{color:var(--inv-ink);box-shadow:inset 0 0 0 1.5px var(--inv-ink)}
+.clist{list-style:none;padding:0;align-self:end}
+.clist a{display:flex;align-items:center;gap:14px;padding:16px 0;border-top:1px solid color-mix(in srgb,var(--inv-ink) 22%,transparent);text-decoration:none}
+.clist li:last-child a{border-bottom:1px solid color-mix(in srgb,var(--inv-ink) 22%,transparent)}
+.clist svg{width:24px;height:24px;flex:none;color:var(--orange)}
+.clist b{font:600 17px var(--f-sub)}
+.clist small{margin-left:auto;font:400 14px var(--f-sub);opacity:.7;text-align:right;overflow-wrap:anywhere}
+@media (min-width:900px){.contact{grid-template-columns:1.1fr .9fr;gap:56px}}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;padding:28px 0 40px;color:var(--muted);border-top:1px solid var(--rule)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="3.5"/><path d="m3.5 7 8.5 6.5L20.5 7"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M6 3.8v16.4a1 1 0 0 0 1.5.9l14-8.2a1 1 0 0 0 0-1.7L7.5 2.9A1 1 0 0 0 6 3.8Z"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="8" y="8" width="16" height="16" rx="3"/><rect x="12.5" y="12.5" width="7" height="7" rx="1.5"/><path d="M12 3v5M16 3v5M20 3v5M12 24v5M16 24v5M20 24v5M3 12h5M3 16h5M3 20h5M24 12h5M24 16h5M24 20h5"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13v6M10.5 8v16M16 4v24M21.5 9v14M27 13v6"/></symbol>
+    <symbol id="i-os" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 25.5A11.5 11.5 0 1 1 20 25.5l-2-5a4.6 4.6 0 1 0-4 0Z"/></symbol>
+    <symbol id="i-conn" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="16" cy="16" r="3.5"/><path d="M9.5 22.5a9.2 9.2 0 0 1 0-13M22.5 9.5a9.2 9.2 0 0 1 0 13M5 27A15 15 0 0 1 5 5M27 5a15 15 0 0 1 0 22"/></symbol>
+    <symbol id="i-hand" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="22" height="20" rx="5"/><circle cx="12" cy="16" r="3"/><circle cx="21" cy="12" r="1.6"/><circle cx="21" cy="20" r="1.6"/><path d="M15 16h3.5l1.5-4M18.5 16l1.5 4"/></symbol>
+    <symbol id="i-li" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+    <symbol id="i-gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></symbol>
+    <symbol id="i-yt" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16v10.5H9.5L5 20v-4H4z"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4a8 8 0 0 0-4.5 14.600c.9.700 1.500 1.700 1.500 2.800V23h6v-1.600c0-1.100.6-2.100 1.500-2.800A8 8 0 0 0 16 4ZM13 27h6"/></symbol>
+  </defs>
+</svg>
+
+<aside class="rail" aria-label="Site navigation">
+  <button class="theme" type="button" aria-label="Toggle light and dark theme">
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="16" cy="16" r="6"/><path d="M16 2v4M16 26v4M2 16h4M26 16h4M6.100 6.100l2.800 2.800M23.100 23.100l2.800 2.800M6.100 25.900l2.800-2.800M23.100 8.900l2.800-2.800"/></svg>
+  </button>
+  <nav class="rail-nav">
+    <a href="#introduction" class="active" aria-current="true"><span>Introduction</span></a>
+    <a href="#projects"><span>Projects</span></a>
+    <a href="#interests"><span>Interests</span></a>
+    <a href="#ask"><span>Ask me</span></a>
+    <a href="/blog/"><span>Blog</span></a>
+  </nav>
+  <a class="rail-me" href="#introduction" aria-label="Back to top"><b>DS</b></a>
+  <div class="ticks" aria-hidden="true"></div>
+  <div class="ticks-focus" aria-hidden="true"></div>
+  <span class="rail-ind" aria-hidden="true"></span>
+  <div class="ticks-fill" aria-hidden="true"></div>
+</aside>
+
+<main>
+  <div class="wrap">
+
+    <!-- ============ INTRODUCTION ============ -->
+    <section id="introduction">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="mono kicker" data-r>Hello, I am</p>
+          <h1 data-r style="--d:.04s">Dhanush<br>Science</h1>
+          <div class="rule" data-r style="--d:.08s"></div>
+          <p class="role" data-r style="--d:.1s">Entrepreneur · Engineer · Innovator</p>
+          <p class="headline" data-r style="--d:.14s">Building the future of <em>human-computer</em> interaction.</p>
+          <div class="tags" data-r style="--d:.18s">
+            <span class="tag"><svg style="color:#3b82f6"><use href="#i-chip"/></svg>Embedded</span>
+            <span class="tag"><svg style="color:#e6a800"><use href="#i-wave"/></svg>Voice AI</span>
+            <span class="tag"><svg style="color:#1f9d55"><use href="#i-os"/></svg>Open Source</span>
+          </div>
+          <div class="cta" data-r style="--d:.22s">
+            <a class="btn hot" href="#projects"><svg><use href="#i-arrow"/></svg>See my projects</a>
+            <a class="btn line" href="#ask">Get in touch</a>
+          </div>
+        </div>
+        <figure class="portrait" data-r>
+          <img src="DHANUSH.png" width="969" height="1098" fetchpriority="high" alt="Pencil-sketch portrait of Dhanush S., wearing glasses and a turtleneck under a jacket">
+          <figcaption class="mono"><span>Fig. 01</span><span>D. Science</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="stats" data-r>
+        <div><b>6</b><span class="mono">Builds documented</span></div>
+        <div><b>1</b><span class="mono">Patent published, Oct 2025</span></div>
+        <div><b>V1</b><span class="mono">OASIS shipped, V2 in development</span></div>
+      </div>
+    </section>
+
+    <section id="who" aria-labelledby="who-h">
+      <div class="who">
+        <div data-r>
+          <p class="hud mono"><b>01</b><i></i>Introduction</p>
+          <h2 class="title" id="who-h">Who am I?</h2>
+          <p class="lede"><strong>In pursuit of greatness.</strong> I build what others call impossible, taking ideas from first principles to products people can hold and use.</p>
+        </div>
+        <div class="caps">
+          <div data-r><svg><use href="#i-chip"/></svg><h3>Embedded Systems</h3><p>Hardware that works in the real world.</p></div>
+          <div data-r style="--d:.06s"><svg><use href="#i-wave"/></svg><h3>AI &amp; Voice</h3><p>Interfaces you simply talk to.</p></div>
+          <div data-r style="--d:.12s"><svg><use href="#i-conn"/></svg><h3>Connected Devices</h3><p>Objects that talk to each other.</p></div>
+          <div data-r style="--d:.18s"><svg><use href="#i-hand"/></svg><h3>Human Interfaces</h3><p>Where people meet machines.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects">
+      <header class="sec-head" data-r>
+        <p class="hud mono"><b>02</b><i></i>Projects</p>
+        <h2 class="title">What have<br>I built?</h2>
+        <p class="lede">Engineering experiments, shipped as real hardware and open-source software.</p>
+      </header>
+
+      <article class="feat" data-r>
+        <div>
+          <p class="badges mono"><span class="os"><svg><use href="#i-os"/></svg>Open source</span><span><i class="dot"></i>V1 shipped · V2 in development</span></p>
+          <h3>Project OASIS</h3>
+          <p class="tl">Talk to your computer. Get things done.</p>
+          <ol class="steps">
+            <li><b>Press</b>3 programmable keys</li>
+            <li><b>Speak</b>Commands &amp; typing</li>
+            <li><b>Done</b>Days on one charge</li>
+          </ol>
+          <div class="cta">
+            <a class="btn hot" href="https://www.youtube.com/watch?v=INGq1PckhZ8" target="_blank" rel="noopener"><svg><use href="#i-play"/></svg>Watch demo</a>
+            <a class="btn line" href="https://dhanushscience.github.io/PROJECT-OASIS/" target="_blank" rel="noopener">Explore project<svg><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+        <img class="feat-img" src="OASIS.png" width="975" height="1061" loading="lazy" alt="Sketch of the OASIS compact controller: a small wooden handheld with three round buttons and a USB connector">
+      </article>
+
+      <div class="proj-row">
+        <div class="video" data-r id="video" style="background-image:url(https://img.youtube.com/vi/INGq1PckhZ8/hqdefault.jpg)">
+          <button type="button" aria-label="Play the OASIS demo video">
+            <span class="play"><svg><use href="#i-play"/></svg></span>
+            <span>OASIS demo</span><span class="mono">YouTube</span>
+          </button>
+        </div>
+        <div class="spec" data-r style="--d:.06s">
+          <h4>OASIS · Specification</h4>
+          <dl>
+            <dt>Input</dt><dd>3 programmable keys</dd>
+            <dt>MCU</dt><dd>ESP32-C3</dd>
+            <dt>Link</dt><dd>BLE</dd>
+            <dt>Firmware</dt><dd>Embedded C</dd>
+            <dt>Power</dt><dd>Low-power, days per charge</dd>
+          </dl>
+        </div>
+      </div>
+
+      <h3 class="sub" data-r>More builds</h3>
+      <div class="builds">
+        <article class="build" data-r>
+          <p class="b-num mono">02</p>
+          <h4 class="b-name">Percept</h4>
+          <p class="b-tag">Patented IOP monitor</p>
+          <p class="b-desc">A non-invasive glaucoma monitoring system. Thermal imaging and mathematical modelling estimate intraocular pressure without any contact or surgery.</p>
+          <ul class="chips"><li>Thermal imaging</li><li>Math modelling</li><li>3D modelling</li></ul>
+          <p class="status"><i class="dot"></i>Patent published · Oct 2025</p>
+        </article>
+        <article class="build" data-r style="--d:.05s">
+          <p class="b-num mono">03</p>
+          <h4 class="b-name">Jiva</h4>
+          <p class="b-tag">Smart CPR assist</p>
+          <p class="b-desc">Joint Intervention for Vital Aid: a battery-free CPR assistant with real-time compression feedback and BPM guidance on your phone, plus GPS emergency location sharing and hospital dispatch mapping.</p>
+          <ul class="chips"><li>Embedded systems</li><li>Smartphone app</li><li>GPS</li></ul>
+          <p class="status"><i class="dot"></i>Proof of concept validated</p>
+        </article>
+        <article class="build" data-r style="--d:.1s">
+          <p class="b-num mono">04</p>
+          <h4 class="b-name">PassVault</h4>
+          <p class="b-tag">Password vault</p>
+          <p class="b-desc">A secure password vault. Logins and keys stay encrypted behind one master password instead of sitting in plain text.</p>
+          <ul class="chips"><li>Security</li><li>Encryption</li></ul>
+          <p class="status"><i class="dot wip"></i>Full notes coming soon</p>
+        </article>
+        <article class="build" data-r>
+          <p class="b-num mono">05</p>
+          <h4 class="b-name">Smart-Home Node</h4>
+          <p class="b-tag">ESP32 home hub</p>
+          <p class="b-desc">A compact sensor and relay unit that puts lights and appliances on the network for remote control.</p>
+          <ul class="chips"><li>ESP32</li><li>MQTT</li><li>Sensors</li></ul>
+          <p class="status"><i class="dot wip"></i>Full notes coming soon</p>
+        </article>
+        <article class="build" data-r style="--d:.05s">
+          <p class="b-num mono">06</p>
+          <h4 class="b-name">Model Rocket</h4>
+          <p class="b-tag">Scratch-built flyer</p>
+          <p class="b-desc">A scratch-built model rocket: airframe, motor mount and recovery work from the workshop bench.</p>
+          <ul class="chips"><li>Mechanical build</li><li>Flight test</li></ul>
+          <p class="status"><i class="dot wip"></i>Full notes coming soon</p>
+        </article>
+      </div>
+      <p class="note" data-r>More experiments and source code live on <a href="https://github.com/dhanushscience" target="_blank" rel="noopener">GitHub</a>.</p>
+    </section>
+
+    <!-- ============ INTERESTS ============ -->
+    <section id="interests">
+      <header class="sec-head" data-r>
+        <p class="hud mono"><b>03</b><i></i>Interests</p>
+        <h2 class="title">What makes<br>me, me?</h2>
+      </header>
+
+      <div class="quote" data-r>
+        <blockquote>The reasonable man adapts himself to the world. The unreasonable one persists in trying to adapt the world to himself. Therefore all progress depends on the <span>unreasonable man</span>.</blockquote>
+        <cite class="mono">George Bernard Shaw</cite>
+      </div>
+
+      <h3 class="sub" data-r>Ideas I love</h3>
+      <div class="ideas" data-r>
+        <div><b>01</b><h3>Challenge the possible</h3></div>
+        <div><b>02</b><h3>First principles thinking</h3></div>
+        <div><b>03</b><h3>Delusional confidence</h3></div>
+        <div><b>04</b><h3>Thinking in systems</h3></div>
+      </div>
+
+      <div class="cols" style="margin-top:clamp(40px,6vw,72px)" data-r>
+        <div>
+          <h3>People I admire</h3>
+          <ol><li>Nikola Tesla</li><li>Steve Jobs</li><li>Iron Man (Tony Stark)</li><li>Harvey Specter</li><li>Patrick Jane</li></ol>
+        </div>
+        <div>
+          <h3>Things I follow</h3>
+          <ul><li>Space exploration</li><li>Emerging technology</li><li>Robotics</li></ul>
+        </div>
+        <div>
+          <h3>Beyond engineering</h3>
+          <ul><li>Jobs <small>2013</small></li><li>Interstellar <small>FILM</small></li><li>3 Idiots <small>FILM</small></li><li>Super Pumped <small>SERIES</small></li><li>3 Body Problem <small>SERIES</small></li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ASK + CONTACT ============ -->
+    <section id="ask">
+      <header class="sec-head" data-r>
+        <p class="hud mono"><b>04</b><i></i>Ask me</p>
+        <h2 class="title">What would you like<br>to talk about?</h2>
+        <p class="lede">Pick a question you're curious about. It opens an email to me with the question already written.</p>
+      </header>
+      <div class="starters" id="starters">
+        <a class="starter" data-r href="#" data-q="Why do you think keyboards will eventually disappear?"><span>Why do you think keyboards will eventually disappear?</span><svg><use href="#i-arrow"/></svg></a>
+        <a class="starter" data-r href="#" data-q="What is your vision for human-computer interaction?"><span>What is your vision for human-computer interaction?</span><svg><use href="#i-arrow"/></svg></a>
+        <a class="starter" data-r href="#" data-q="Which scientist or entrepreneur inspires you?"><span>Which scientist or entrepreneur inspires you?</span><svg><use href="#i-arrow"/></svg></a>
+        <a class="starter" data-r href="#" data-q="What would you build if money wasn't a constraint?"><span>What would you build if money wasn't a constraint?</span><svg><use href="#i-arrow"/></svg></a>
+        <a class="starter" data-r href="#" data-q="What's the most unconventional idea you've explored?"><span>What's the most unconventional idea you've explored?</span><svg><use href="#i-arrow"/></svg></a>
+      </div>
+
+      <div class="contact" id="contact" data-r>
+        <div>
+          <p class="mono" style="color:var(--orange)">Let's connect</p>
+          <h2>Have an idea? <em>Let's talk.</em></h2>
+          <p>Have an interesting technical problem, a collaboration opportunity, or simply a question about my work? I'd love to hear from you.</p>
+          <div class="cta">
+            <a class="btn hot" href="mailto:dhanushscience@proton.me?subject=Hello%20Dhanush"><svg><use href="#i-mail"/></svg>Send me a message</a>
+            <button class="btn line" type="button" id="vcard"><svg><use href="#i-save"/></svg>Save contact</button>
+          </div>
+        </div>
+        <ul class="clist">
+          <li><a href="https://www.linkedin.com/in/dhanushscience/" target="_blank" rel="noopener"><svg><use href="#i-li"/></svg><b>LinkedIn</b><small>in/dhanushscience</small></a></li>
+          <li><a href="https://github.com/dhanushscience" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg><b>GitHub</b><small>dhanushscience</small></a></li>
+          <li><a href="https://www.youtube.com/@dhanushscience" target="_blank" rel="noopener"><svg><use href="#i-yt"/></svg><b>YouTube</b><small>@dhanushscience</small></a></li>
+          <li><a href="mailto:dhanushscience@proton.me"><svg><use href="#i-mail"/></svg><b>Email</b><small>dhanushscience@proton.me</small></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="mono"><span>© <span id="yr">2026</span> Dhanush Science</span><span>Entrepreneur · Technology Builder</span></footer>
+  </div>
+</main>
+
+<script src="/site.js"></script>
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const EMAIL='dhanushscience@proton.me';
+$('#yr').textContent=new Date().getFullYear();
+
+// conversation starters -> prefilled email
+$$('.starter').forEach(a=>{a.href=`mailto:${EMAIL}?subject=${encodeURIComponent('Question for Dhanush')}&body=${encodeURIComponent(a.dataset.q+'\n\n')}`});
+
+// click-to-load video (nothing from YouTube loads until asked)
+$('#video button').onclick=()=>{
+  $('#video').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/INGq1PckhZ8?autoplay=1&rel=0" title="Project OASIS demo" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+};
+
+// save contact as .vcf
+$('#vcard').onclick=()=>{
+  const v=['BEGIN:VCARD','VERSION:3.0','FN:Dhanush Science','N:Science;Dhanush;;;','ORG:Dhanush Science','TITLE:Entrepreneur · Technology Builder','TEL;TYPE=CELL:+919742615796',`EMAIL:${EMAIL}`,'URL:https://dhanushscience.info/','URL:https://www.linkedin.com/in/dhanushscience/','URL:https://github.com/dhanushscience','URL:https://www.youtube.com/@dhanushscience','END:VCARD'].join('\r\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([v],{type:'text/vcard'}));a.download='Dhanush-Science.vcf';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+};
+})();
+</script>
+</body>
+</html>

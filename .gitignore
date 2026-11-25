@@ -1,4 +1,23 @@
+# dependencies and build output
 node_modules/
-*.log
 dist/
-build/node_modules/
+build/
+.astro/
+
+# logs and OS junk
+*.log
+.DS_Store
+Thumbs.db
+
+# local env files
+.env
+.env.*
+
+# editor / tool folders
+.claude/
+.vscode/
+.idea/
+
+# design reference images (not part of the site)
+INSPIRATION.png
+MAIN_UI.png

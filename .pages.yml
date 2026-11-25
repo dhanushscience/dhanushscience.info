@@ -1,0 +1,24 @@
+media:
+  input: public/images/blog
+  output: /images/blog
+content:
+  - name: blog
+    label: Blog posts
+    type: collection
+    path: src/content/blog
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    view:
+      fields: [title, date]
+      primary: title
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: title, label: "Title (aim for under 60 characters)", type: string, required: true }
+      - { name: description, label: "Short description (card + Google result, aim for 120-155 characters)", type: text, required: true }
+      - { name: date, label: Date, type: date, required: true }
+      - { name: cover, label: "Cover image (thumbnail + social preview, use JPG or PNG)", type: image }
+      - { name: draft, label: Draft (hide from the site), type: boolean, default: false }
+      - { name: body, label: Post, type: rich-text }
