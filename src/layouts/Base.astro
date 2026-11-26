@@ -65,5 +65,8 @@ const img = new URL(image, Astro.site);
 </html>
 
 <style is:global>
+/* fainter grid than the home page, so it never competes with reading */
+html:root{--grid:rgba(0,0,0,.022)}
+html:root[data-theme=dark]{--grid:rgba(255,255,255,.018)}
 .wrap.page{margin-inline:0;max-width:1400px;padding-block:clamp(28px,5vw,64px) clamp(48px,7vw,96px)}
 </style>
