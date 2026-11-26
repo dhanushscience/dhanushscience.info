@@ -1,7 +1,7 @@
 ---
-title: Before I Build Anything, I Ask Myself This
-description: Why I stopped falling in love with solutions and started
-  understanding problems.
+title: "First-Principles Thinking: What I Ask Before I Build"
+description: How one judge's question taught me first-principles thinking,
+  leading to a patent and an SIH 2025 win.
 date: 2026-11-26
 thumbnail:
   light: /images/blog/THUMBNAIL_BLOG-3.png
@@ -38,7 +38,10 @@ I explore technologies, and random stuff on the internet, whether or not I need 
 
 That habit pays off. When I run into a new problem, my brain pulls in something I explored months ago, and that often leads to a better solution.
 
-Going into SIH 2024, Raspberry Pi, image processing and AI were booming, and I was excited about all of them. The traditional clinical approach captures an image of the fundus (the back of the eye) and calculates the cup-to-disc ratio to find IOP. So my plan felt obvious, capture the image using a device and let AI do the calculation locally on the Raspberry Pi.
+Going into SIH 2024, Raspberry Pi, image processing and AI were booming, and I was excited about all of them. The traditional clinical approach captures an image of the fundus (the back of the eye) and calculates the cup-to-disc ratio to find IOP. So my plan felt obvious, capture the image using a device and let AI do the calculation locally on the Raspberry Pi.  
+
+
+![image.png](/images/blog/image-1.png)
 
 It worked, but it was a costly workaround. I never asked why it had to be done this way, or whether an elderly patient could hold the device steady.
 
@@ -78,7 +81,10 @@ We could not just drop the original work. The team kept developing it, I helped 
 - **The mistake.** While designing the 3D-printed enclosure, I applied about 2 mm *inward* instead of outward. The sensors and battery barely fit. My friends laughed at me. Fair enough.
 - **The bad luck.** The display got damaged in transport. It slowly got worse and died completely during the final showcase.
 
-But the device worked.
+But the device worked.  
+
+
+![1737601620434.jpg](/images/blog/1737601620434-1.jpg)
 
 ## We lost, but it led to a win
 
@@ -108,13 +114,13 @@ I also built the team differently. Instead of everything depending on me, I look
 
 We won SIH 2025.
 
+![1766225118267.jpg](/images/blog/1766225118267.jpg)
+
 It was not an overnight result. It was the lesson I had failed to apply the year before, finally applied.
 
 ## First-principles thinking: how I approach a problem now
 
 I deconstruct the problem by asking why until it cannot break down any further. Only then do I build the solution back up from what is left. Now a days I spend more time of working out problem rather than building solutions.
-
-
 
 **First, break it down with WHYs**. I start by asking why the problem exists in the first place, and try to understand it. That gives me a few answers. Then I take each answer and ask why again: Why is it like this? Why should the solution work this way?
 
