@@ -1,0 +1,8 @@
+---
+import { darkOf } from '../themed';
+interface Props { light: string; dark?: string | null; alt: string; class?: string; width: number; height: number; loading?: 'lazy' }
+const { light, dark, class: cls, ...attrs } = Astro.props;
+const night = dark || darkOf(light);
+---
+<img {...attrs} src={light} class:list={[cls, night && 'only-light']} />
+{night && <img {...{ ...attrs, loading: 'lazy' }} src={night} class:list={[cls, 'only-dark']} />}

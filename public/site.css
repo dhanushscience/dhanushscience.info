@@ -18,6 +18,10 @@ html{overflow-x:clip;-webkit-text-size-adjust:100%;scroll-padding-top:76px}
 body{background:var(--page);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:48px 48px;color:var(--ink);font:400 16px/1.6 var(--f-body);overflow-x:clip}
 a{color:inherit}
 img{max-width:100%;height:auto;display:block}
+/* light/dark image pairs; color-scheme lets an SVG's own prefers-color-scheme follow the toggle */
+:root{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+:root[data-theme=dark] img.only-light,:root:not([data-theme=dark]) img.only-dark{display:none}
 :focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:6px}
 .mono{font:500 12px/1.4 var(--f-sub);letter-spacing:.1em;text-transform:uppercase}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}

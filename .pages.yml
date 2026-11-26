@@ -19,6 +19,13 @@ content:
       - { name: title, label: "Title (aim for under 60 characters)", type: string, required: true }
       - { name: description, label: "Short description (card + Google result, aim for 120-155 characters)", type: text, required: true }
       - { name: date, label: Date, type: date, required: true }
-      - { name: cover, label: "Cover image (thumbnail + social preview, use JPG or PNG)", type: image }
+      - name: thumbnail
+        label: Thumbnail (blog card, 1600x1000)
+        type: object
+        fields:
+          - { name: light, label: "Light mode image (empty = use the cover)", type: image }
+          - { name: dark, label: "Dark mode image (optional)", type: image }
+      - { name: cover, label: "Cover image (top of post + social preview, use JPG or PNG)", type: image }
+      - { name: coverDark, label: "Cover image for dark mode (optional)", type: image }
       - { name: draft, label: Draft (hide from the site), type: boolean, default: false }
-      - { name: body, label: Post, type: rich-text }
+      - { name: body, label: Post, type: rich-text, description: "Dark mode image: upload photo.png and photo-dark.png, then insert only photo.png" }

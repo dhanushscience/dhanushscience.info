@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import Themed from '../../components/Themed.astro';
 
 const posts = (await getCollection('blog', (p) => !p.data.draft)).sort((a, b) => +b.data.date - +a.data.date);
 const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
@@ -21,16 +22,20 @@ const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 
   </header>
 
   <ul class="grid" id="grid">
-    {posts.map((p) => (
+    {posts.map((p) => {
+      const { thumbnail: t, cover, coverDark } = p.data;
+      const [light, dark] = t?.light ? [t.light, t.dark] : [cover, coverDark];
+      return (
       <li data-t={`${p.data.title} ${p.data.description}`.toLowerCase()}>
         <a class="post" href={`/blog/${p.id}/`}>
-          <div class="thumb">{p.data.cover ? <img src={p.data.cover} alt="" loading="lazy" width="800" height="500"> : <span class="dot"></span>}</div>
+          <div class="thumb">{light ? <Themed light={light} dark={dark} alt="" loading="lazy" width={800} height={500} /> : <span class="dot"></span>}</div>
           <time class="mono" datetime={p.data.date.toISOString()}>{fmt(p.data.date)}</time>
           <h2>{p.data.title}</h2>
           <p>{p.data.description}</p>
         </a>
       </li>
-    ))}
+      );
+    })}
   </ul>
   <p class="none" id="none" hidden>No posts match that search.</p>
   {posts.length === 0 && <p class="none">First post coming soon.</p>}
@@ -62,7 +67,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 
   .post{display:block;height:100%;text-decoration:none;background:var(--card);border-radius:16px;padding:10px 10px 18px;border:1px solid var(--rule);transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .25s}
   .post:hover{transform:translateY(-3px);border-color:var(--orange)}
   .thumb{aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:var(--pink);display:grid;place-items:center;margin-bottom:12px}
-  .thumb img{width:100%;height:100%;object-fit:cover}
+  .thumb :global(img){width:100%;height:100%;object-fit:cover}
   .dot{width:18%;aspect-ratio:1;border-radius:50%;background:var(--orange)}
   time{display:block;color:var(--muted);padding-inline:6px;font-size:11px}
   h2{font:600 17px/1.25 var(--f-sub);letter-spacing:-.01em;margin:6px 6px 4px}

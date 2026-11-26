@@ -1,6 +1,8 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import Themed from '../../components/Themed.astro';
+import { themeImages } from '../../themed';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', (p) => !p.data.draft);
@@ -8,8 +10,9 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
-const { title, description, date, cover } = post.data;
+const { title, description, date, cover, coverDark, thumbnail } = post.data;
+const body = themeImages(post.rendered?.html ?? '');
+const share = cover || thumbnail?.light || undefined;
 const when = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 const postUrl = new URL(`/blog/${post.id}/`, Astro.site).href;
 const person = { '@type': 'Person', name: 'Dhanush S.', url: 'https://dhanushscience.info/' };
@@ -17,7 +20,7 @@ const jsonLd = [
   {
     '@context': 'https://schema.org', '@type': 'BlogPosting',
     headline: title, description,
-    image: new URL(cover ?? '/og-default.png', Astro.site).href,
+    image: new URL(share ?? '/og-default.png', Astro.site).href,
     datePublished: date.toISOString(), dateModified: date.toISOString(),
     author: person, publisher: person, mainEntityOfPage: postUrl,
   },
@@ -31,14 +34,14 @@ const jsonLd = [
   },
 ];
 ---
-<Base title={`${title} | Dhanush Science`} description={description} active="blog" image={cover} type="article" published={date} jsonLd={jsonLd}>
+<Base title={`${title} | Dhanush Science`} description={description} active="blog" image={share} type="article" published={date} jsonLd={jsonLd}>
   <article>
     <a class="back mono" href="/blog/">← All posts</a>
     <time class="mono" datetime={date.toISOString()}>{when}</time>
     <h1>{title}</h1>
     <p class="lead">{description}</p>
-    {cover && <img class="cover" src={cover} alt={title} width="1200" height="750">}
-    <div class="prose"><Content /></div>
+    {cover && <Themed class="cover" light={cover} dark={coverDark} alt={title} width={1200} height={750} />}
+    <div class="prose" set:html={body} />
   </article>
 </Base>
 
@@ -49,7 +52,7 @@ const jsonLd = [
   time{display:block;color:var(--orange);margin-bottom:10px}
   h1{font:800 clamp(22px,2.8vw,32px)/1.1 var(--f-display);letter-spacing:-.02em;margin-bottom:12px}
   .lead{font:400 17px/1.5 var(--f-sub);color:var(--muted);margin-bottom:24px}
-  .cover{width:100%;border-radius:16px;margin-bottom:28px}
+  article :global(.cover){width:100%;border-radius:16px;margin-bottom:28px}
   .prose :global(> * + *){margin-top:1.2em}
   .prose :global(h2){font:700 21px/1.2 var(--f-sub);letter-spacing:-.01em;margin-top:2em}
   .prose :global(h3){font:600 17px/1.25 var(--f-sub);margin-top:1.6em}

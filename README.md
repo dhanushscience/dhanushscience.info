@@ -9,7 +9,9 @@ Personal website of Dhanush S. (Dhanush Science).
 ## Writing a post
 
 1. Go to https://app.pagescms.org, sign in with GitHub, open this repo.
-2. Blog posts -> Add an entry. Fill title, short description, date, cover image, then write the post.
+2. Blog posts -> Add an entry. Fill title, short description, date, thumbnail and cover, then write the post.
+   Dark mode: thumbnail and cover have a second "dark" field. For images inside the text, upload
+   `photo.png` and `photo-dark.png` and insert only `photo.png`.
    Use the toolbar image button to add pictures inside the text.
 3. Save. The site rebuilds and the post is live at `/blog/<title>/` in about a minute.
 
