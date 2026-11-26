@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "public/index.html"
+        ],
+        "createdAt": "2026-11-26T16:53:57.841Z",
+        "reason": "finish reviewer: #ask field and .starters rows have visible block padding in captures (static mis-measure)"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "public/index.html"
+        ],
+        "createdAt": "2026-11-26T16:54:08.856Z",
+        "reason": "finish reviewer (two builds): rendered display headings are 48-116px over 16px body; static measure reads 16px"
+      }
+    ]
+  }
+}

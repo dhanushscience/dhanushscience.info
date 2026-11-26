@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-26T00:00:00Z",
+  "title": "Design System: Dhanush Science",
+  "extensions": {
+    "colorMeta": {
+      "carbon-ink": { "role": "primary", "displayName": "Carbon Ink", "canonical": "#0b0c0e", "tonalRamp": ["#0b0c0e", "#1d2024", "#33373d", "#4a5058", "#6b727b", "#9097a0", "#c3c8ce", "#eceef0"] },
+      "film-violet": { "role": "secondary", "displayName": "Film Violet (from the thin-film gradient)", "canonical": "#b9a6ff", "tonalRamp": ["#2a1f5c", "#3f2f8a", "#5946b8", "#7a66db", "#9a86f0", "#b9a6ff", "#d6caff", "#efeaff"] },
+      "signal-blue": { "role": "tertiary", "displayName": "Signal Blue (focus only)", "canonical": "#2357d6", "tonalRamp": ["#0c1f4f", "#133083", "#1b44b0", "#2357d6", "#4f7be6", "#8fb2ff", "#c2d4ff", "#eaf0ff"] },
+      "lab-white": { "role": "neutral", "displayName": "Lab White", "canonical": "#ffffff", "tonalRamp": ["#08090b", "#121418", "#2a2e34", "#5a6068", "#a3a9b1", "#dfe2e7", "#f4f5f6", "#ffffff"] },
+      "ceramic": { "role": "neutral", "displayName": "Ceramic", "canonical": "#f4f5f6" },
+      "instrument-grey": { "role": "neutral", "displayName": "Instrument Grey", "canonical": "#5a6068" },
+      "hairline": { "role": "neutral", "displayName": "Hairline", "canonical": "rgba(11,12,14,.12)" },
+      "hairline-strong": { "role": "neutral", "displayName": "Hairline Strong", "canonical": "rgba(11,12,14,.28)" },
+      "field-black": { "role": "neutral", "displayName": "Field Black", "canonical": "#0b0c0e" },
+      "field-ink": { "role": "neutral", "displayName": "Field Ink", "canonical": "#f2f3f5" },
+      "field-grey": { "role": "neutral", "displayName": "Field Grey", "canonical": "#a3a9b1" },
+      "field-hairline": { "role": "neutral", "displayName": "Field Hairline", "canonical": "rgba(242,243,245,.16)" },
+      "ghost-equation": { "role": "neutral", "displayName": "Ghost Equation", "canonical": "#dfe2e7" },
+      "night-page": { "role": "neutral", "displayName": "Night Page (dark theme)", "canonical": "#08090b" },
+      "night-raised": { "role": "neutral", "displayName": "Night Raised (dark theme)", "canonical": "#121418" },
+      "night-ink": { "role": "neutral", "displayName": "Night Ink (dark theme)", "canonical": "#eef0f3" },
+      "night-signal-blue": { "role": "tertiary", "displayName": "Night Signal Blue (dark focus)", "canonical": "#8fb2ff" }
+    },
+    "gradients": [
+      { "name": "film", "value": "linear-gradient(90deg,#8fd3ff,#b9a6ff 25%,#ffb0d0 50%,#ffe39a 75%,#9ff0cf)", "purpose": "Thin-film iridescence flattened; only ever a 2px line (active nav, scroll progress, feature panel top edge, quote emphasis)." }
+    ],
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The name in the hero only." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles." },
+      "title": { "displayName": "Title", "purpose": "Build names, shelf and group headings." },
+      "statement": { "displayName": "Statement", "purpose": "Quote in the black field; light Sora with one 600 emphasis." },
+      "subhead": { "displayName": "Subhead", "purpose": "Pitch line and feature tagline." },
+      "body": { "displayName": "Body", "purpose": "Running text and ledes." },
+      "label": { "displayName": "Mono label", "purpose": "Status, dates, stack, spec values, step numbers. Sentence case." }
+    },
+    "shadows": [
+      { "name": "card-rest", "value": "0 20px 40px -26px rgba(11,12,14,.45)", "purpose": "Deck cards at rest." },
+      { "name": "card-lifted", "value": "0 0 0 2px #b9a6ff, 0 36px 60px -24px rgba(11,12,14,.5)", "purpose": "Deck card on hover or focus." },
+      { "name": "button-halo", "value": "0 0 0 2px var(--page), 0 0 0 4px #b9a6ff", "purpose": "Primary button hover." }
+    ],
+    "materials": [
+      { "name": "chrome-film", "value": "MeshPhysicalMaterial({color:0xffffff,metalness:1,roughness:.12,iridescence:1,iridescenceIOR:2.1,iridescenceThicknessRange:[250,650],envMapIntensity:1.1}); keys: roughness .18, envMapIntensity .55, color 0xd9dee5, domed; studio env = bright + film-tinted softboxes", "purpose": "The live delta mark and the OASIS pad keys." },
+      { "name": "white-ceramic", "value": "MeshPhysicalMaterial({color:0xf3f3f1,roughness:.32,clearcoat:.7,clearcoatRoughness:.12,envMapIntensity:.9})", "purpose": "The OASIS pad body." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(.16,1,.3,1)", "purpose": "All transforms: nav underline (.45s), card fan (.6s), starter indent (.4s), theme toggle rotate (.5s)." },
+      { "name": "color-fade", "value": ".2s–.25s", "purpose": "Colour, background and shadow state changes." }
+    ],
+    "breakpoints": [
+      { "name": "wordmark", "value": "560px" },
+      { "name": "fan", "value": "700px" },
+      { "name": "split", "value": "900px" },
+      { "name": "shelf", "value": "1000px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Carbon fill, the main call to action.",
+      "html": "<a class=\"ds-btn ds-btn-hot\" href=\"#\">Start a conversation<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12h16M14 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 26px;border:0;border-radius:2px;font:500 15px 'Geist',system-ui,sans-serif;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .25s,color .25s,box-shadow .25s}.ds-btn svg{width:18px;height:18px;transition:transform .35s cubic-bezier(.16,1,.3,1)}.ds-btn:hover svg{transform:translateX(3px)}.ds-btn-hot{background:var(--ink,#0b0c0e);color:var(--page,#fff)}.ds-btn-hot:hover{box-shadow:0 0 0 2px var(--page,#fff),0 0 0 4px #b9a6ff}.ds-btn:focus-visible{outline:2px solid var(--blue,#2357d6);outline-offset:3px}"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Secondary action beside the primary.",
+      "html": "<a class=\"ds-btn-line\" href=\"#\">See the work</a>",
+      "css": ".ds-btn-line{display:inline-flex;align-items:center;height:52px;padding:0 26px;border-radius:2px;font:500 15px 'Geist',system-ui,sans-serif;text-decoration:none;background:transparent;color:var(--ink,#0b0c0e);box-shadow:inset 0 0 0 1px var(--rule-2,rgba(11,12,14,.28));transition:box-shadow .25s}.ds-btn-line:hover{box-shadow:inset 0 0 0 1px var(--ink,#0b0c0e)}.ds-btn-line:focus-visible{outline:2px solid var(--blue,#2357d6);outline-offset:3px}"
+    },
+    {
+      "name": "Channel Chip",
+      "kind": "chip",
+      "refersTo": "chip-channel",
+      "description": "Audience selector on the black field.",
+      "html": "<div class=\"ds-field\"><button class=\"ds-chip\" aria-selected=\"true\">an investor</button> <button class=\"ds-chip\" aria-selected=\"false\">an engineer</button></div>",
+      "css": ".ds-field{background:#0b0c0e;padding:24px}.ds-chip{height:42px;padding:0 18px;border:1px solid rgba(242,243,245,.4);border-radius:2px;background:transparent;color:#f2f3f5;font:500 14px 'Geist',system-ui,sans-serif;cursor:pointer;transition:background .25s,color .25s}.ds-chip:hover{border-color:#f2f3f5}.ds-chip[aria-selected=true]{background:#f2f3f5;color:#0b0c0e}.ds-chip:focus-visible{outline:2px solid #8fb2ff;outline-offset:3px}"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav-bar",
+      "description": "Fixed bar: mark and wordmark, links with a film underline when active.",
+      "html": "<nav class=\"ds-rail\"><b class=\"ds-wm\">Dhanush<br>Science</b><span class=\"ds-links\"><a href=\"#\" class=\"on\">Work</a><a href=\"#\">About</a><a href=\"#\">Talk</a><a href=\"#\">Blog</a></span></nav>",
+      "css": ".ds-rail{display:flex;align-items:center;justify-content:space-between;height:76px;padding:0 24px;background:color-mix(in srgb,#fff 94%,transparent);border-bottom:1px solid rgba(11,12,14,.12)}.ds-wm{font:600 15px/1.05 'Sora',system-ui,sans-serif;letter-spacing:-.01em;color:#0b0c0e}.ds-links{display:flex;gap:28px}.ds-links a{position:relative;padding:8px 2px;font:500 14px/1 'Geist',system-ui,sans-serif;text-decoration:none;color:#5a6068;transition:color .2s}.ds-links a::after{content:\"\";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,#8fd3ff,#b9a6ff 25%,#ffb0d0 50%,#ffe39a 75%,#9ff0cf);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.16,1,.3,1)}.ds-links a:hover,.ds-links a.on{color:#0b0c0e}.ds-links a:hover::after,.ds-links a.on::after{transform:none}.ds-links a:focus-visible{outline:2px solid #2357d6;outline-offset:3px}"
+    },
+    {
+      "name": "Build Row",
+      "kind": "custom",
+      "refersTo": "build-row",
+      "description": "Ruled index row: name and origin, description, mono status with dot.",
+      "html": "<article class=\"ds-build\"><div><h4>Percept</h4><p class=\"ds-mono\">Glaucoma IOP monitor · patent</p></div><p>Thermal imaging and mathematical modelling estimate intraocular pressure without contact.</p><div class=\"ds-mono ds-meta\"><span class=\"ds-st on\">Patent published · Oct 2025</span><span class=\"ds-st\">Write-up in progress</span></div></article>",
+      "css": ".ds-build{display:grid;grid-template-columns:1fr 1.2fr 200px;gap:8px 32px;padding:26px 0;border-bottom:1px solid rgba(11,12,14,.12);font:400 16px/1.6 'Geist',system-ui,sans-serif;color:#0b0c0e}.ds-build h4{font:600 30px/1 'Sora',system-ui,sans-serif;letter-spacing:-.035em;margin:0}.ds-build p{color:#5a6068;margin:8px 0 0}.ds-mono{font:400 12px/1.45 'Geist Mono',ui-monospace,monospace;letter-spacing:.02em;font-variant-numeric:tabular-nums}.ds-meta{display:flex;flex-direction:column;gap:6px;text-align:right;align-items:flex-end}.ds-st::before{content:\"\";display:inline-block;width:7px;height:7px;margin-right:9px;border:1px solid #0b0c0e;border-radius:50%;vertical-align:1px}.ds-st.on::before{background:#0b0c0e}"
+    },
+    {
+      "name": "Feature Panel",
+      "kind": "card",
+      "refersTo": "feature-panel",
+      "description": "Ceramic panel with a 2px film top edge for the flagship build.",
+      "html": "<article class=\"ds-feature\"><h3>Project OASIS</h3><p class=\"ds-tag\">Three buttons, every app, your voice.</p></article>",
+      "css": ".ds-feature{position:relative;padding:40px;background:#f4f5f6;color:#0b0c0e}.ds-feature::before{content:\"\";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,#8fd3ff,#b9a6ff 25%,#ffb0d0 50%,#ffe39a 75%,#9ff0cf)}.ds-feature h3{font:600 56px/.95 'Sora',system-ui,sans-serif;letter-spacing:-.045em;margin:0}.ds-tag{font:500 22px/1.3 'Geist',system-ui,sans-serif;margin:22px 0 0}"
+    },
+    {
+      "name": "Conversation Starter",
+      "kind": "custom",
+      "refersTo": "black-field",
+      "description": "Ruled prompt row on the black field; indents on hover.",
+      "html": "<div class=\"ds-ask\"><a class=\"ds-starter\" href=\"#\">Who buys OASIS first, and why now?<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12h16M14 6l6 6-6 6\"/></svg></a></div>",
+      "css": ".ds-ask{background:#0b0c0e;color:#f2f3f5;padding:24px;border-top:1px solid #f2f3f5}.ds-starter{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;border-bottom:1px solid rgba(242,243,245,.16);color:inherit;text-decoration:none;font:400 26px/1.2 'Sora',system-ui,sans-serif;letter-spacing:-.03em;transition:padding .4s cubic-bezier(.16,1,.3,1)}.ds-starter svg{width:24px;height:24px;flex:none;transition:transform .4s cubic-bezier(.16,1,.3,1)}.ds-starter:hover{padding-left:12px}.ds-starter:hover svg{transform:translateX(6px)}.ds-starter:focus-visible{outline:2px solid #8fb2ff;outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The White Lab",
+    "overview": "A clean white laboratory where the person is the product. The ground is white, the ink is near-black, and the only colour in the whole system is a material: chrome and thin-film iridescence, the finish of the delta mark. That material lives on real objects (the live three.js chrome delta in the bar, the white ceramic OASIS pad with chrome keys) and, flattened, as a single iridescent hairline. Everything else is typography, hairlines and white space.\n\nThe hero is the person and his sign: the visor portrait cutout anchored to the bottom right edge, and a giant, faint \"δS = 0\" (the principle of stationary action) set behind him, vertical on desktop and horizontal on mobile. Content is read as a lab index: ruled rows, mono data labels, status dots, numbered steps. Twice the page drops into a full-bleed black field (the quote and the conversation), the owner's own colour, inverting the tokens rather than introducing new ones.\n\nWhite is the default theme. `[data-theme=dark]` is a faithful alternate, not the primary expression.",
+    "keyCharacteristics": [
+      "White ground, carbon ink, no hue except the iridescent film.",
+      "Chrome and iridescence appear on 3D objects and hairlines only.",
+      "Square, near-zero corners (2px) and 1px rules carry the structure.",
+      "Sora display set tight and large; Geist for reading; Geist Mono for data.",
+      "Full-bleed black fields for the quote and the conversation.",
+      "The portrait and \"δS = 0\" are the identity, not decoration."
+    ],
+    "rules": [
+      { "name": "The Material-Only Colour Rule", "body": "There is no brand hue. Colour enters only as chrome and thin-film iridescence on objects, or as the 2px film line. Never fill a surface, a button or a block of text with the film or any hue.", "section": "colors" },
+      { "name": "The Hairline Film Rule", "body": "The film gradient is a line, 2px tall, never thicker and never an area. It marks state (active, progress) or a single emphasis.", "section": "colors" },
+      { "name": "The Rebind, Don't Recolour Rule", "body": "A black field is made by re-binding the ink/muted/rule/page tokens on the section, not by writing new component colours.", "section": "colors" },
+      { "name": "The Tight Sora Rule", "body": "Every Sora size at 24px and above carries negative tracking (-0.02em at 20px, down to -0.05em at display). Loose display type breaks the world.", "section": "typography" },
+      { "name": "The Mono Is Data Rule", "body": "Geist Mono carries facts (status, date, stack, spec). It is not used for headings or as a decorative label above headings.", "section": "typography" },
+      { "name": "The Real Object Rule", "body": "Depth belongs to objects that exist (the mark, the pad, the portrait, the cards). Panels and rows stay flat.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the ground white and the ink carbon; let chrome and iridescence be the only colour.",
+      "Do use the film gradient only as a 2px line for state or a single emphasis.",
+      "Do build lists as ruled rows with mono status and metadata, and label unfinished work plainly with a hollow status dot.",
+      "Do make black fields by re-binding the ink/muted/rule/page tokens on the section.",
+      "Do keep corners at 2px on controls and 0 elsewhere.",
+      "Do give every 3D object a static fallback and respect reduced motion."
+    ],
+    "donts": [
+      "Don't introduce a brand hue, coloured fills, or gradient areas; the film is a line.",
+      "Don't use dark neon sci-fi treatments (glows, scanlines, neon on black) for the futuristic feel.",
+      "Don't fall back to a hero over a grid of cards for the work; builds are an index of ruled rows.",
+      "Don't set Sora display loose or in light tracking.",
+      "Don't put mono uppercase labels above headings."
+    ]
+  }
+}

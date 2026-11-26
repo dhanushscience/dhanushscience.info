@@ -1,0 +1,4 @@
+{
+  "prompt": "Origin: user-supplied portrait assets/now/FACE.png (transparent cutout). Cropped to alpha bounds, light rim around hair and jaw removed, cutout spikes removed by morphological opening, edge tightened ~1.5px, resized for web. Not generated.",
+  "createdAt": "2026-11-26T16:57:09.049Z"
+}
