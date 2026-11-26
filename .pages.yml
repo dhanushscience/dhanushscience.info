@@ -29,3 +29,4 @@ content:
       - { name: coverDark, label: "Cover image for dark mode (optional)", type: image }
       - { name: draft, label: Draft (hide from the site), type: boolean, default: false }
       - { name: body, label: Post, type: rich-text, description: "Dark mode image: upload photo.png and photo-dark.png, then insert only photo.png" }
+
