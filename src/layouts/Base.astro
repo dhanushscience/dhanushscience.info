@@ -53,6 +53,7 @@ const img = new URL(image, Astro.site);
     <a href="/#ask"><span>Ask me</span></a>
     <a href="/blog/" class:list={{ active: active === 'blog' }} aria-current={active === 'blog' ? 'page' : undefined}><span>Blog</span></a>
   </nav>
+  <slot name="bar" />
   <a class="rail-me" href="/" aria-label="Back to home"><b>DS</b></a>
   <div class="ticks" aria-hidden="true"></div>
   <div class="ticks-focus" aria-hidden="true"></div>

@@ -37,6 +37,13 @@ const jsonLd = [
 ];
 ---
 <Base title={`${title} | Dhanush Science`} description={description} active="blog" image={share} type="article" published={date} jsonLd={jsonLd}>
+  <details class="reading" slot="bar">
+    <summary><span id="now">{title}</span></summary>
+    <ol>
+      {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+      <li><a href="/blog/">← All posts</a></li>
+    </ol>
+  </details>
   <div class="reader">
   <article>
     <a class="back mono" href="/blog/">← All posts</a>
@@ -55,7 +62,48 @@ const jsonLd = [
   </div>
 </Base>
 
+<script>
+  // phones: the top bar names the section being read
+  const box = document.querySelector<HTMLDetailsElement>('.reading')!;
+  const now = box.querySelector<HTMLElement>('#now')!;
+  const title = now.textContent!;
+  const links = [...box.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')];
+  const update = () => {
+    let cur: HTMLAnchorElement | undefined;
+    for (const a of links) {
+      const h = document.getElementById(a.getAttribute('href')!.slice(1));
+      if (h && h.getBoundingClientRect().top < 120) cur = a;
+    }
+    now.textContent = cur?.textContent ?? title;
+    links.forEach((a) => (a === cur ? a.setAttribute('aria-current', 'location') : a.removeAttribute('aria-current')));
+  };
+  addEventListener('scroll', update, { passive: true });
+  update();
+  document.addEventListener('click', (e) => {
+    const t = e.target as HTMLElement;
+    if (!box.contains(t) || t.closest('a')) box.open = false;
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && box.open) { box.open = false; box.querySelector('summary')!.focus(); }
+  });
+</script>
+
 <style>
+  .reading{order:1;flex:1;min-width:0}
+  .reading summary{display:flex;align-items:center;gap:10px;height:40px;padding:0 10px;cursor:pointer;list-style:none;font:500 14px var(--f-sub)}
+  .reading summary::-webkit-details-marker{display:none}
+  .reading summary span{flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+  .reading summary::after{content:"";flex:none;width:7px;height:7px;border:solid var(--orange);border-width:0 2px 2px 0;transform:translateY(-2px) rotate(45deg)}
+  .reading[open] summary::after{transform:translateY(2px) rotate(225deg)}
+  .reading ol{position:absolute;top:60px;left:0;right:0;max-height:70vh;overflow-y:auto;list-style:none;padding:8px 18px;background:#000;border-radius:22px;box-shadow:0 0 0 1px rgba(255,255,255,.16),0 24px 40px -16px rgba(0,0,0,.6)}
+  .reading li+li{border-top:1px solid rgba(255,255,255,.14)}
+  .reading a{display:block;padding:13px 0;font:500 14px/1.4 var(--f-sub);color:rgba(255,255,255,.75);text-decoration:none}
+  .reading a[aria-current]{color:var(--orange)}
+  :global(.rail:has(.reading) .rail-nav){display:none}
+  @media (min-width:900px){
+    .reading{display:none}
+    :global(.rail:has(.reading) .rail-nav){display:flex}
+  }
   /* centred reading column; wide screens add the contents list beside it */
   :global(.wrap.page:has(.reader)){max-width:none}
   .reader{display:grid;grid-template-columns:minmax(0,720px);justify-content:center;column-gap:clamp(40px,5vw,88px)}
