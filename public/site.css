@@ -16,6 +16,7 @@
 html{overflow-x:clip;-webkit-text-size-adjust:100%;scroll-padding-top:76px}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 body{background:var(--page);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:48px 48px;color:var(--ink);font:400 16px/1.6 var(--f-body);overflow-x:clip}
+::selection{background:var(--orange);color:#0a0a0a}
 a{color:inherit}
 img{max-width:100%;height:auto;display:block}
 /* light/dark image pairs; color-scheme lets an SVG's own prefers-color-scheme follow the toggle */
